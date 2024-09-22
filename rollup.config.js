@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
+import copy from 'rollup-plugin-copy';
 
 export default [
 
@@ -16,7 +17,12 @@ export default [
 		plugins: [
 			resolve({ browser: true }), 
 			commonjs(),
-            terser()
+            terser(),
+			copy({
+				targets: [
+					{ src: 'src/types/receipt-printer-encoder.d.ts', dest: 'dist/types' }
+				]
+			})
 		]
 	},
 
@@ -31,7 +37,12 @@ export default [
 		plugins: [
 			resolve({ browser: true }), 
 			commonjs(),
-            terser()
+            terser(),
+			copy({
+				targets: [
+					{ src: 'src/types/receipt-printer-encoder.d.ts', dest: 'dist/types' }
+				]
+			})
 		]
 	},
 
@@ -42,6 +53,13 @@ export default [
 		output: [
 			{ file: 'dist/receipt-printer-encoder.cjs', format: 'cjs' },
 			{ file: 'dist/receipt-printer-encoder.mjs', format: 'es' }
+		],
+		plugins: [
+			copy({
+				targets: [
+					{ src: 'src/types/receipt-printer-encoder.d.ts', dest: 'dist/types' }
+				]
+			})
 		]
 	}
 ];
