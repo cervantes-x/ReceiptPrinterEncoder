@@ -2221,10 +2221,9 @@ class ReceiptPrinterEncoder {
         throw new Error('Unknown codepage mapping');
       }
 
-      this.#codepageMapping = Object.fromEntries(
-        Object.entries(codepageMappings[this.#options.language][this.#options.codepageMapping])
-          .map(([key, value]) => [value, parseInt(key)])
-      );
+      this.#codepageMapping = Object.fromEntries(codepageMappings[this.#options.language][this.#options.codepageMapping]
+          .map((v, i) => [v, i])
+          .filter((i) => i));
     } else {
       this.#codepageMapping = this.#options.codepageMapping;
     }

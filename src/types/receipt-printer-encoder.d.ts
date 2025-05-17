@@ -37,8 +37,8 @@ export interface TableColumn {
   width?: number;
   marginLeft?: number;
   marginRight?: number;
-  align?: "left" | "right";
-  verticalAlign?: "top" | "center" | "bottom";
+  align?: "left" | "center" | "right";
+  verticalAlign?: "top" | "bottom";
 }
 
 export interface BoxOptions {
@@ -98,9 +98,9 @@ export default class ReceiptPrinterEncoder {
 
   size(width: number | string, height?: number): ReceiptPrinterEncoder;
 
-  font(value: 'A' | 'B'): ReceiptPrinterEncoder;
+  font(value: "A" | "B"): ReceiptPrinterEncoder;
 
-  align(value: 'left' | 'center' | 'right'): ReceiptPrinterEncoder;
+  align(value: "left" | "center" | "right"): ReceiptPrinterEncoder;
 
   table(
     columns: ReadonlyArray<TableColumn>,
@@ -121,13 +121,13 @@ export default class ReceiptPrinterEncoder {
   barcode(
     value: string,
     symbology:
-      | 'upca'
-      | 'upce'
-      | 'ean13'
-      | 'ean8'
-      | 'coda39'
-      | 'itf'
-      | 'codabar',
+      | "upca"
+      | "upce"
+      | "ean13"
+      | "ean8"
+      | "coda39"
+      | "itf"
+      | "codabar",
     height?: number | object
   ): ReceiptPrinterEncoder;
 
@@ -143,9 +143,9 @@ export default class ReceiptPrinterEncoder {
     threshold?: number
   ): ReceiptPrinterEncoder;
 
-  pulse(device?: '0' | '1', on?: number, off?: number): ReceiptPrinterEncoder;
+  pulse(device?: "0" | "1", on?: number, off?: number): ReceiptPrinterEncoder;
 
-  cut(value?: 'full' | 'partial'): ReceiptPrinterEncoder;
+  cut(value?: "full" | "partial"): ReceiptPrinterEncoder;
 
   raw(data: Uint8Array): ReceiptPrinterEncoder;
 
